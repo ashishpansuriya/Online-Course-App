@@ -18,7 +18,10 @@ const ScreenNavigator = () => {
     <Stack.Screen
       name="IntroScreen"
       component={IntroScreen}
-      options={{ title: 'Welcome' }}
+      options={{
+                  title: "Home",
+                  headerShown: false,
+                }}
     />
     <Stack.Screen name="LoginScreen" component={LoginScreen} />
 
