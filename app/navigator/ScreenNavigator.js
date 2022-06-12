@@ -23,7 +23,10 @@ const ScreenNavigator = () => {
                   headerShown: false,
                 }}
     />
-    <Stack.Screen name="LoginScreen" component={LoginScreen} />
+    <Stack.Screen name="LoginScreen" component={LoginScreen}  options={{
+                  title: "Home",
+                  headerShown: false,
+                }} />
 
     <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
 

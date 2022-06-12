@@ -6,16 +6,15 @@ import {
   Text,
   ImageBackground,
   StatusBar,
+  SafeAreaView,
+  TouchableOpacity,
   Image,
-  Button,
 } from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 const IntroScreen = props => {
   return (
-    <View style={styles.droidSafeArea}>
+    <SafeAreaView style={styles.droidSafeArea}>
       <ImageBackground
         source={require('../assets/image/appbg.png')}
-        onPress={() => props.navigation.navigate('LoginScreen')}
         style={styles.mainContainer}>
         <StatusBar backgroundColor="transparent" translucent={true} />
 
@@ -33,23 +32,27 @@ const IntroScreen = props => {
             Let's easy fast with Studee {'\n'} Watch video learning anytime{' '}
           </Text>
 
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => props.navigation.navigate('LoginScreen')}>
             <Text style={{color: 'black', fontWeight: 'bold'}}>Sign in</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.buttonSignUp} onPress={() => {}}>
+          <TouchableOpacity
+            style={styles.buttonSignUp}
+            onPress={() => props.navigation.navigate('SignUpScreen')}>
             <Text style={{color: 'white', fontWeight: 'bold'}}>Sign up</Text>
           </TouchableOpacity>
         </View>
       </ImageBackground>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+    flex: 1,
+    
   },
   image: {
     width: '60%',
