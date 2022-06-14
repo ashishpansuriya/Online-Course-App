@@ -6,7 +6,7 @@ export default {
   Red: '#FF0000',
   White: ' #FFFFFF',
   Cyan: '#00FFFF',
-  Silver: '#C0C0C0',
+  Silver: '#F0F4FD',
 
   Blue: '#0000FF',
   Grey: '#808080',

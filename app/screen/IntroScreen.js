@@ -50,10 +50,6 @@ const IntroScreen = props => {
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    flex: 1,
-    
-  },
   image: {
     width: '60%',
     height: 230,
@@ -123,18 +119,6 @@ const styles = StyleSheet.create({
   mainContainer: {
     width: '100%',
     height: '100%',
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
   },
 });
 
