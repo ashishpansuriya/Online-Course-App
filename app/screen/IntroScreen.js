@@ -9,8 +9,10 @@ import {
   SafeAreaView,
   TouchableOpacity,
   Image,
+  Alert,
 } from 'react-native';
 const IntroScreen = props => {
+ 
   return (
     <SafeAreaView style={styles.droidSafeArea}>
       <ImageBackground
@@ -18,14 +20,15 @@ const IntroScreen = props => {
         style={styles.mainContainer}>
         <StatusBar backgroundColor="transparent" translucent={true} />
 
+        <Image
+          source={require('../assets/image/amico.png')}
+          style={styles.image}
+        />
+
         <View style={styles.droidSafeArea}>
-          <Image
-            source={require('../assets/image/amico.png')}
-            style={styles.image}
-          />
           <Text style={styles.textStudiee}>
             Stud
-            <Text style={{color: 'blue'}}>ee</Text>
+            <Text style={{color: '#A16BC4'}}>ee</Text>
           </Text>
 
           <Text style={styles.textsmall}>
@@ -55,17 +58,20 @@ const styles = StyleSheet.create({
     height: 230,
     alignSelf: 'center',
     alignContent: 'center',
-    marginTop: 40,
+    marginTop: 60,
     resizeMode: 'contain',
   },
   droidSafeArea: {
     flex: 1,
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
   },
   textStudiee: {
     fontSize: 60,
     alignSelf: 'center',
     marginTop: 20,
-    color: '#A020F0',
+    color: '#FFF',
     fontWeight: 'bold',
   },
   textsmall: {

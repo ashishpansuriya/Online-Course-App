@@ -11,14 +11,29 @@ import {
   KeyboardAvoidingView,
   TextInput,
   Platform,
-  Dimensions,
   ScrollView,
-  SafeAreaView,
+  Alert,
 } from 'react-native';
 import Colors from '../components/Colors';
 
 const LoginScreen = props => {
   const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : 0;
+
+  const buttonClickListener = () => {
+    const {TextInputValue} = this.props;
+    if (TextInputValue == '') {
+      Alert.alert('Please enter the text to proceed');
+    }
+  };
+
+  const onEnterText = TextInputValue => {
+    if (TextInputValue.trim() != 0) {
+      this.props({TextInputValue: TextInputValue, ErrorStatus: true});
+    } else {
+      this.props({TextInputValue: TextInputValue, ErrorStatus: false});
+    }
+  };
+
 
   return (
     <KeyboardAvoidingView keyboardVerticalOffset={keyboardVerticalOffset}>
@@ -26,36 +41,42 @@ const LoginScreen = props => {
       <ImageBackground
         source={require('../assets/image/appbg.png')}
         style={[styles.containter]}>
-         
-            <ScrollView nestedScrollEnabled={true} style={styles.droidSafeArea}>
-              <Image
-                source={require('../assets/image/amico.png')}
-                style={styles.image}
-              />
+        <Image
+          source={require('../assets/image/amico.png')}
+          style={styles.image}
+        />
+        <View style={styles.scrollview}>
+          <ScrollView style={styles.droidSafeArea}>
+            <Text style={styles.text}>Hello,</Text>
 
-              <View style={[styles.scrollview]}>
-                <Text style={styles.text}>Hello,</Text>
+            <Text style={styles.welcomeText}>Welcome Back</Text>
 
-                <Text style={styles.welcomeText}>Welcome Back</Text>
+            <View
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+                alignContent: 'center',
+                alignItems: 'center',
+              }}>
+              <TextInput style={styles.userName} placeholder="Username" />
 
-                <TextInput style={styles.userName} placeholder="Username" />
+              <TextInput style={styles.userName} placeholder="Password" />
 
-                <TextInput style={styles.userName} placeholder="Password" />
+              <Text style={[styles.forgot, {color: Colors.DarkBlue}]}>
+                Forgot Password?
+              </Text>
 
-                <Text style={[styles.forgot, {color: Colors.DarkBlue}]}>
-                  Forgot Password?
+              <TouchableOpacity
+                style={styles.button}
+                
+                onPress={() => props.navigation.navigate('MainScreen')}>
+                <Text style={{color: 'white', fontWeight: 'bold'}}>
+                  Sign in
                 </Text>
-
-                <TouchableOpacity
-                  style={styles.button}
-                  onPress={() => props.navigation.navigate('LoginScreen')}>
-                  <Text style={{color: 'white', fontWeight: 'bold'}}>
-                    Sign in
-                  </Text>
-                </TouchableOpacity>
-              </View>
-            </ScrollView>
-       
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
+        </View>
       </ImageBackground>
     </KeyboardAvoidingView>
   );
@@ -67,7 +88,7 @@ const styles = StyleSheet.create({
     height: 190,
     alignSelf: 'center',
     alignContent: 'center',
-    marginTop: 40,
+    marginTop: 60,
     resizeMode: 'contain',
   },
   text: {
@@ -94,9 +115,11 @@ const styles = StyleSheet.create({
   scrollview: {
     backgroundColor: 'white',
     marginTop: 10,
+    flex: 1,
+    alignContent: 'center',
     borderTopLeftRadius: 26,
     borderTopRightRadius: 26,
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
   },
 
   userName: {
@@ -121,7 +144,6 @@ const styles = StyleSheet.create({
   droidSafeArea: {
     backgroundColor: 'transparent',
     marginTop: 10,
-   
     flex: 1,
     borderTopLeftRadius: 26,
     borderTopRightRadius: 26,
