@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   View,
@@ -18,22 +18,22 @@ import Colors from '../components/Colors';
 
 const LoginScreen = props => {
   const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : 0;
-
-  const buttonClickListener = () => {
-    const {TextInputValue} = this.props;
-    if (TextInputValue == '') {
-      Alert.alert('Please enter the text to proceed');
+  const [textInputName, setTextInputName] = useState('');
+  const [textInputEmail, setTextInputEmail] = useState('');
+  const checkTextInput = () => {
+    //Check for the Name TextInput
+    if (!textInputName.trim()) {
+      alert('Please Enter UserName');
+      return;
     }
-  };
-
-  const onEnterText = TextInputValue => {
-    if (TextInputValue.trim() != 0) {
-      this.props({TextInputValue: TextInputValue, ErrorStatus: true});
+    //Check for the Email TextInput
+    else if (!textInputEmail.trim()) {
+      alert('Please Enter Password');
+      return;
     } else {
-      this.props({TextInputValue: TextInputValue, ErrorStatus: false});
+      props.navigation.navigate('MainScreen');
     }
   };
-
 
   return (
     <KeyboardAvoidingView keyboardVerticalOffset={keyboardVerticalOffset}>
@@ -51,25 +51,27 @@ const LoginScreen = props => {
 
             <Text style={styles.welcomeText}>Welcome Back</Text>
 
-            <View
-              style={{
-                flex: 1,
-                justifyContent: 'center',
-                alignContent: 'center',
-                alignItems: 'center',
-              }}>
-              <TextInput style={styles.userName} placeholder="Username" />
+            <View>
+              <TextInput
+                style={styles.userName}
+                underlineColorAndroid="transparent"
+                placeholder="UserName"
+                onChangeText={value => setTextInputName(value)}
+              />
 
-              <TextInput style={styles.userName} placeholder="Password" />
+              <TextInput
+                style={styles.userName}
+                placeholder="Password"
+                secureTextEntry={true}
+                onChangeText={value => setTextInputEmail(value)}
+                underlineColorAndroid="transparent"
+              />
 
               <Text style={[styles.forgot, {color: Colors.DarkBlue}]}>
                 Forgot Password?
               </Text>
 
-              <TouchableOpacity
-                style={styles.button}
-                
-                onPress={() => props.navigation.navigate('MainScreen')}>
+              <TouchableOpacity style={styles.button} onPress={checkTextInput}>
                 <Text style={{color: 'white', fontWeight: 'bold'}}>
                   Sign in
                 </Text>
@@ -84,8 +86,8 @@ const LoginScreen = props => {
 
 const styles = StyleSheet.create({
   image: {
-    width: '70%',
-    height: 190,
+    width: '80%',
+    height: 240,
     alignSelf: 'center',
     alignContent: 'center',
     marginTop: 60,
@@ -97,7 +99,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginTop: 40,
     fontSize: 16,
-    color: Colors.White,
+    color: 'black',
   },
   forgot: {
     alignContent: 'center',
@@ -117,8 +119,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     flex: 1,
     alignContent: 'center',
-    borderTopLeftRadius: 26,
-    borderTopRightRadius: 26,
+    borderTopLeftRadius: 29,
+    borderTopRightRadius: 29,
     justifyContent: 'center',
   },
 
