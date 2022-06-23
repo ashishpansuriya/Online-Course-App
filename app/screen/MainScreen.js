@@ -32,9 +32,11 @@ const MainScreen = () => {
           />
         </View>
 
-        <Text style={styles.welcomeText}>Hello, User</Text>
+        <Text style={[styles.welcomeText, {marginTop: 25}]}>Hello, User</Text>
 
-        <Text style={styles.text}>What do you want to learn?</Text>
+        <Text style={[styles.text, {marginTop: 10}]}>
+          What do you want to learn?
+        </Text>
 
         <ImageBackground
           source={require('../assets/image/bg.png')}
@@ -42,25 +44,12 @@ const MainScreen = () => {
           <View style={styles.imgView}>
             <View style={styles.txtView}>
               <Text
-                style={{
-                  alignContent: 'center',
-                  alignSelf: 'flex-start',
-                  marginLeft: 20,
-                  fontSize:26,
-                  fontWeight: 'bold',
-                  color: 'white',
-                }}>
+                style={[styles.welcomeText , {color:'white'}] }>
                 New Course!
               </Text>
 
               <Text
-                style={{
-                  alignContent: 'center',
-                  alignSelf: 'flex-start',
-                  marginLeft: 20,
-                  fontSize: 14,
-                  color: 'white',
-                }}>
+                style={[styles.text , {color:'white'}] }>
                 User Experience Class
               </Text>
               <TouchableOpacity style={styles.button}>
@@ -68,21 +57,14 @@ const MainScreen = () => {
                   See Class
                 </Text>
               </TouchableOpacity>
-            </View>         
+            </View>
           </View>
-
         </ImageBackground>
 
-        <View style={styles.header}>
-          <Image
-            source={require('../assets/image/menu.png')}
-            style={styles.menu}
-          />
+        <View style={[styles.header, {marginTop: 10}]}>
+          <Text style={[styles.welcomeText]}>Course</Text>
 
-          <Image
-            source={require('../assets/image/usericon.png')}
-            style={styles.user}
-          />
+          <Text style={[styles.text , {marginRight:15, justifyContent:'center' ,marginTop: 10}] }>View All</Text>
         </View>
       </View>
     </SafeAreaView>
@@ -123,7 +105,6 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     alignSelf: 'flex-start',
     marginLeft: 20,
-    marginTop: 10,
     fontSize: 14,
     color: Colors.Grey,
   },
@@ -131,7 +112,6 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     alignSelf: 'flex-start',
     marginLeft: 20,
-    marginTop: 25,
     fontSize: 26,
     fontWeight: 'bold',
     color: 'black',
@@ -161,8 +141,8 @@ const styles = StyleSheet.create({
   button: {
     height: 30,
     width: '23%',
-    borderRadius:9,
-    marginLeft:20,
+    borderRadius: 9,
+    marginLeft: 20,
     justifyContent: 'center',
     alignSelf: 'flex-start',
     alignItems: 'center',
@@ -171,7 +151,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   image: {
-    width:100,
+    width: 100,
     height: 100,
     alignSelf: 'center',
     alignContent: 'center',
