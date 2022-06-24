@@ -14,7 +14,7 @@ import {
   ScrollView,
   Alert,
 } from 'react-native';
-import Colors from '../components/Colors';
+import Colors from '../assets/colors/Colors';
 
 const LoginScreen = props => {
   const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : 0;
