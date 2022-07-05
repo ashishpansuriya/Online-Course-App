@@ -8,48 +8,24 @@ import {
   SafeAreaView,
 } from 'react-native';
 import Colors from '../assets/colors/Colors';
-
+import TabFlatListComponent from '../components/TabFlatListComponent';
 const FourthPage = ({navigation}) => {
+  const DATA = [
+    {
+      id: '1',
+      photo: require('../assets/image/r.png'),
+      duration: '5h 15m',
+      rate: '4.0',
+      title: 'Adobe Course',
+    },
+  ];
+
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: Colors.Silver }}>
-      <View style={{flex: 1, padding: 16}}>
-        <View
-          style={{
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <Text
-            style={{
-              fontSize: 25,
-              textAlign: 'center',
-              marginBottom: 16,
-            }}>
-            Home{'\n'}(You are on FirstPage)
-          </Text>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigation.navigate('SecondPage')}>
-            <Text>Go to settng Tab</Text>
-          </TouchableOpacity>
-        </View>
-        <Text
-          style={{
-            fontSize: 18,
-            textAlign: 'center',
-            color: 'grey',
-          }}>
-          React Native Tab Navigation
-        </Text>
-        <Text
-          style={{
-            fontSize: 16,
-            textAlign: 'center',
-            color: 'grey',
-          }}>
-          www.aboutreact.com
-        </Text>
-      </View>
+    <SafeAreaView style={{flex: 1, backgroundColor: Colors.Silver}}>
+      <TabFlatListComponent
+        onPressing={() => navigation.navigate('DetailsScreen')}
+        data={DATA}
+      />
     </SafeAreaView>
   );
 };

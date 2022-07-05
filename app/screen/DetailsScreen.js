@@ -1,11 +1,11 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, Button} from 'react-native';
 
 const DetailsScreen = () => {
   return (
     <View>
-      <Text> Screen </Text>
+      <Text> Screen </Text>      
     </View>
   );
 };
@@ -28,5 +28,5 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
 });
- 
+
 export default DetailsScreen;

@@ -8,48 +8,59 @@ import {
   SafeAreaView,
 } from 'react-native';
 import Colors from '../assets/colors/Colors';
-
+import TabFlatListComponent from '../components/TabFlatListComponent';
 const ThirdPage = ({navigation}) => {
+  const DATA = [
+    {
+      id: '1',
+      photo: require('../assets/image/r.png'),
+      duration: '8h 25m',
+      rate: '5.0',
+      title: 'Basic C And C++',
+    },
+    {
+      id: '2',
+      photo: require('../assets/image/d_design.png'),
+      duration: '6h 40m',
+      rate: '4.7',
+      title: 'Android',
+    },
+    {
+      id: '3',
+      photo: require('../assets/image/r.png'),
+      duration: '12h 45m',
+      rate: '4.9',
+      title: 'Flutter',
+    },
+    {
+      id: '4',
+      photo: require('../assets/image/d_design.png'),
+      duration: '12h 11m',
+      rate: '4.8',
+      title: 'React',
+    },
+    {
+      id: '5',
+      photo: require('../assets/image/r.png'),
+      duration: '2h 18m',
+      title: 'JavaScript',
+      rate: '5.0',
+    },
+    {
+      id: '6',
+      photo: require('../assets/image/r.png'),
+      duration: '9h 44m',
+      title: 'Python',
+      rate: '5.0',
+    },
+  ];
+
   return (
-    <SafeAreaView style={{flex: 1 , backgroundColor: Colors.Silver}}>
-      <View style={{flex: 1, padding: 16}}>
-        <View
-          style={{
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <Text
-            style={{
-              fontSize: 25,
-              textAlign: 'center',
-              marginBottom: 16,
-            }}>
-            Home{'\n'}(You are on FirstPage)
-          </Text>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigation.navigate('SecondPage')}>
-            <Text>Go to settng Tab</Text>
-          </TouchableOpacity>
-        </View>
-        <Text
-          style={{
-            fontSize: 18,
-            textAlign: 'center',
-            color: 'grey',
-          }}>
-          React Native Tab Navigation
-        </Text>
-        <Text
-          style={{
-            fontSize: 16,
-            textAlign: 'center',
-            color: 'grey',
-          }}>
-          www.aboutreact.com
-        </Text>
-      </View>
+    <SafeAreaView style={{flex: 1, backgroundColor: Colors.Silver}}>
+      <TabFlatListComponent
+        onPressing={() => navigation.navigate('DetailsScreen')}
+        data={DATA}
+      />
     </SafeAreaView>
   );
 };

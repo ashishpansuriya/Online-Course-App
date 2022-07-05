@@ -30,14 +30,25 @@ const MainScreen = () => {
             tabBarActiveTintColor: Colors.DarkBlue,
             tabBarInactiveTintColor: Colors.LightGrey,
             tabBarIndicatorStyle: {
-              backgroundColor: '#00000000',
+              borderWidth:2,
+              borderRadius:11,
+              padding:0.1,
+              flex:1,
+              backgroundColor:Colors.DarkBlue,
+              flexDirection: 'column',
+              alignSelf:'flex-end',
+              alignItems:'center',
+              alignContent:"center",
+              justifyContent: 'space-between',
+              borderBottomColor:Colors.DarkBlue,
               fontSize: 20,
             },
             tabBarStyle: {
+              
               backgroundColor: '#00000000',
             },
             tabBarLabelStyle: {
-              borderRadius:20,
+     
               fontSize: 10,
             },
           }}>
