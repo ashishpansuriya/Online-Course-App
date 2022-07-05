@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
 import {
@@ -158,7 +157,6 @@ const styles = StyleSheet.create({
   imgView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-
     width: '100%',
   },
   txtView: {

@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import * as React from 'react';
 import {
@@ -8,10 +7,11 @@ import {
   Text,
   SafeAreaView,
 } from 'react-native';
+import Colors from '../assets/colors/Colors';
 
 const ThirdPage = ({navigation}) => {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1 , backgroundColor: Colors.Silver}}>
       <View style={{flex: 1, padding: 16}}>
         <View
           style={{

@@ -1,66 +1,57 @@
-/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import * as React from 'react';
 import {
-  TouchableOpacity,
-  StyleSheet,
-  View,
-  Text,
   SafeAreaView,
 } from 'react-native';
+import Colors from '../assets/colors/Colors';
+import TabFlatListComponent from '../components/TabFlatListComponent';
 
 const SecondPage = ({navigation}) => {
+  const DATA = [
+    {
+      id: '1',
+      photo: require('../assets/image/r.png'),
+      duration: '5h 15m',
+      rate:'5.0',
+      title: 'PhotoShop Course',
+    },
+    {
+      id: '2',
+      photo: require('../assets/image/d_design.png'),
+      duration: '3h 04m',
+      rate:'5.0',
+      title: '3D Design',
+    },
+    {
+      id: '3',
+      photo: require('../assets/image/r.png'),
+      duration: '4h 55m',
+      rate:'5.0',
+      title: 'Figma',
+    },
+    {
+      id: '4',
+      photo: require('../assets/image/d_design.png'),
+      duration: '7h 35m',
+      rate:'5.0',
+      title: 'VFX',
+    },
+    {
+      id: '5',
+      photo: require('../assets/image/r.png'),
+      duration: '0h 30m',
+      rate:'5.0',
+      title: 'Html & css',
+    },
+  ];
+
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <View style={{flex: 1, padding: 16}}>
-        <View
-          style={{
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <Text
-            style={{
-              fontSize: 25,
-              textAlign: 'center',
-              marginBottom: 16,
-            }}>
-            Setting{'\n'}(You are on SecondPage)
-          </Text>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigation.navigate('FirstPage')}>
-            <Text>Go to Home Tab</Text>
-          </TouchableOpacity>
-        </View>
-        <Text
-          style={{
-            fontSize: 18,
-            textAlign: 'center',
-            color: 'grey',
-          }}>
-          React Native Tab Navigation
-        </Text>
-        <Text
-          style={{
-            fontSize: 16,
-            textAlign: 'center',
-            color: 'grey',
-          }}>
-          www.aboutreact.com
-        </Text>
-      </View>
+    <SafeAreaView style={{flex: 1, backgroundColor: Colors.Silver }}>
+      <TabFlatListComponent
+        onPressing={() => navigation.navigate('DetailsScreen')}
+        data ={DATA}
+      />
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  button: {
-    alignItems: 'center',
-    backgroundColor: '#DDDDDD',
-    padding: 10,
-    width: 300,
-    marginTop: 16,
-  },
-});
 export default SecondPage;

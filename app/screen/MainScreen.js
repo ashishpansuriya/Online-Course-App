@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
@@ -26,18 +25,23 @@ const MainScreen = () => {
       <View style={styles.sectionContainer}>
         <MainScreenComponent />
 
-        <Tab.Navigator screenOptions={{
-              tabBarLabelStyle: {fontSize: 12},
-              tabBarItemStyle: {width: 100},
-              tabBarActiveTintColor: '#e91e63',
-              
-              tabBarStyle: {backgroundColor: 'white'},
-            }}>
-          <Tab.Screen
-            name="All"
-            component={FirstPage}
-            
-          />
+        <Tab.Navigator
+          screenOptions={{
+            tabBarActiveTintColor: Colors.DarkBlue,
+            tabBarInactiveTintColor: Colors.LightGrey,
+            tabBarIndicatorStyle: {
+              backgroundColor: '#00000000',
+              fontSize: 20,
+            },
+            tabBarStyle: {
+              backgroundColor: '#00000000',
+            },
+            tabBarLabelStyle: {
+              borderRadius:20,
+              fontSize: 10,
+            },
+          }}>
+          <Tab.Screen name="All" component={FirstPage} />
           <Tab.Screen name="Design" component={SecondPage} />
           <Tab.Screen name="Programming" component={ThirdPage} />
           <Tab.Screen name="UI/UX" component={FourthPage} />
