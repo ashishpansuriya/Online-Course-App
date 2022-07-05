@@ -28,7 +28,7 @@ const MainScreen = () => {
         <Tab.Navigator
           screenOptions={{
             tabBarActiveTintColor: Colors.DarkBlue,
-            tabBarInactiveTintColor: Colors.LightGrey,
+            tabBarInactiveTintColor: Colors.Grey,
             tabBarIndicatorStyle: {
               borderWidth:2,
               borderRadius:11,
